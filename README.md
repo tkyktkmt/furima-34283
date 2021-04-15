@@ -78,9 +78,9 @@
 | nickname              | string | null: false               |
 | email                 | string | null: false, unique: true |
 | encrypted_password    | string | null: false               |
-| family_name_kanji     | string | null: false               |
-| first_name_kanji      | string | null: false               |
-| family_name_katakana  | string | null: false               |
+| last_name             | string | null: false               |
+| first_name            | string | null: false               |
+| last_name_katakana    | string | null: false               |
 | first_name_katakana   | string | null: false               |
 | birthday              | date   | null: false               |
 
