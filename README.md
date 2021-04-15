@@ -73,16 +73,16 @@
 
 ## users table
 
-| Column                | Type   | Options      |
-|-----------------------|--------|--------------|
-| nickname              | string | unique: true |
-| email                 | string | unique: true |
-| password              | string | null: false  |
-| family_name(kanji)    | string | null: false  |
-| first_name(kanji)     | string | null: false  |
-| family_name(katakana) | string | null: false  |
-| first_name(katakana)  | string | null: false  |
-| birthday              | string | null: false  |
+| Column                | Type   | Options                   |
+|-----------------------|--------|---------------------------|
+| nickname              | string | unique: true              |
+| email                 | string | null: false, unique: true |
+| encrypted_password    | string | null: false               |
+| family_name(kanji)    | string | null: false               |
+| first_name(kanji)     | string | null: false               |
+| family_name(katakana) | string | null: false               |
+| first_name(katakana)  | string | null: false               |
+| birthday              | date   | null: false               |
 
 ### association
 
@@ -91,18 +91,17 @@
 
 ## items
 
-| Column              | Type      | Options                        |
-|---------------------|-----------|--------------------------------| 
-| image               | ActiveStorageで実装?                        |
-| product_name        | string    | null: false                    |
-| detail              | string    | null: false                    |
-| category            | string    | null: false                    |
-| status              | string    | null: false                    |
-| shipping_fee_burden | string    | null: false                    |
-| shipping_location   | string    | null: false                    |
-| shipping_date       | string    | null: false                    |
-| price               | string    | null: false                    |
-| user_id             | reference | null: false, foreign_key: true |
+| Column                 | Type       | Options                        |
+|------------------------|------------|--------------------------------| 
+| product_name           | string     | null: false                    |
+| detail                 | text       | null: false                    |
+| category_id            | integer    | null: false                    |
+| status_id              | integer    | null: false                    |
+| shipping_fee_burden_id | integer    | null: false                    |
+| shipping_location_id   | integer    | null: false                    |
+| shipping_date_id       | integer    | null: false                    |
+| price                  | integer    | null: false                    |
+| user                   | references | null: false, foreign_key: true |
 
 ### association
 
@@ -111,12 +110,10 @@
 
 ## purchases
 
-| Column             | Type      | Options                        |
-|--------------------|-----------|--------------------------------|
-| buyer_name         | string    | null: false                    |
-| purchased_item     | string    | null: false                    |
-| user_id            | reference | null: false, foreign_key: true |
-| item_id            | reference | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 ### association
 
@@ -125,14 +122,15 @@
 
 ## locations
 
-| Column        | Type      | Options                        |
-|---------------|-----------|--------------------------------|
-| province      | string    | null: false                    |
-| city          | string    | null: false                    |
-| address_line1 | string    | null: false                    |
-| address_line2 | string    | null: false                    |
-| phone_number  | string    | null: false                    |
-| purchased_id  | reference | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+|---------------|------------|--------------------------------|
+| postal_code   | string     | null: false                    |
+| province      | string     | null: false                    |
+| city          | string     | null: false                    |
+| address_line1 | string     | null: false                    |
+| address_line2 | string     | null: false                    |
+| phone_number  | string     | null: false                    |
+| purchased     | references | null: false, foreign_key: true |
 
 ### association
 
