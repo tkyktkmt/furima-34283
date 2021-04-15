@@ -75,13 +75,13 @@
 
 | Column                | Type   | Options                   |
 |-----------------------|--------|---------------------------|
-| nickname              | string | unique: true              |
+| nickname              | string | null: false               |
 | email                 | string | null: false, unique: true |
 | encrypted_password    | string | null: false               |
-| family_name(kanji)    | string | null: false               |
-| first_name(kanji)     | string | null: false               |
-| family_name(katakana) | string | null: false               |
-| first_name(katakana)  | string | null: false               |
+| family_name_kanji     | string | null: false               |
+| first_name_kanji      | string | null: false               |
+| family_name_katakana  | string | null: false               |
+| first_name_katakana   | string | null: false               |
 | birthday              | date   | null: false               |
 
 ### association
@@ -98,7 +98,7 @@
 | category_id            | integer    | null: false                    |
 | status_id              | integer    | null: false                    |
 | shipping_fee_burden_id | integer    | null: false                    |
-| shipping_location_id   | integer    | null: false                    |
+| province_id            | integer    | null: false                    |
 | shipping_date_id       | integer    | null: false                    |
 | price                  | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
@@ -119,18 +119,19 @@
 
 - belongs_to :item
 - belongs_to :user
+- has_one    :location
 
 ## locations
 
 | Column        | Type       | Options                        |
 |---------------|------------|--------------------------------|
 | postal_code   | string     | null: false                    |
-| province      | string     | null: false                    |
+| province_id   | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address_line1 | string     | null: false                    |
-| address_line2 | string     | null: false                    |
+| address_line2 | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchased     | references | null: false, foreign_key: true |
+| purchase      | references | null: false, foreign_key: true |
 
 ### association
 
