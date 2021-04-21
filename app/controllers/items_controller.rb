@@ -26,7 +26,8 @@ class ItemsController < ApplicationController
       :shipping_fee_burden_id, 
       :province_id, 
       :shipping_date_id, 
-      :price
-    ).merge(user_id: currnet_user.id)
+      :price,
+      :image
+    ).merge(user_id: current_user.id)
   end
 end
