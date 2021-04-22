@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :province
   belongs_to :shipping_date
   has_one_attached :image
+  belongs_to :user
 
   with_options presence: true do 
     validates :product_name          
@@ -19,7 +20,7 @@ class Item < ApplicationRecord
       validates :shipping_date_id      
     end
     validates :province_id
-    validates :user_id 
+    # validates :user_id 
     validates :image              
   end
 end
