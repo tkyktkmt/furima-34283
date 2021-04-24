@@ -20,7 +20,6 @@ class Item < ApplicationRecord
       validates :shipping_date_id
     end
     validates :province_id
-    # validates :user_id
     validates :image
   end
 end
