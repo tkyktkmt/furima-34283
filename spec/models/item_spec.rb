@@ -10,7 +10,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
     end
-    
+
     context '商品出品ができない時' do
       it 'product_nameが空では出品できないこと' do
         @item.product_name = ''
@@ -79,7 +79,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが半角英数混合では出品できないこと' do
-        @item.price = "de12"
+        @item.price = 'de12'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
