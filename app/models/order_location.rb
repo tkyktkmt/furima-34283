@@ -1,5 +1,5 @@
 class OrderLocation 
-  lnclude ActiveModel::Model 
+  include ActiveModel::Model 
   attr_accessor :user_id, :item_id, :postal_code, :province_id, :city, :address_line1, :address_line2, :phone_number
   with_options presence: true do
    validates :user_id
