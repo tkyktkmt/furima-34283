@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @order_location = OrderLocation.new(order_params)
     if @order_location.valid?
       @order_location.save 
-      redirect_ro root_path
+      redirect_to root_path
     else  
       render :index
     end
