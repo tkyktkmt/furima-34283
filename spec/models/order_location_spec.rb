@@ -50,6 +50,12 @@ RSpec.describe OrderLocation, type: :model do
         expect(@order_location.errors.full_messages).to include("Phone number can't be blank")
       end
 
+      it "tokenが空では登録できないこと" do
+        @order_location.token = nil
+        @order_location.valid?
+        expect(@order_location.errors.full_messages).to include("Token can't be blank")
+      end
+
       it 'postal_codeにハイフンがなければ購入できないこと' do
         @order_location.postal_code = "1234567"
         @order_location.valid?
