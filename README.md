@@ -106,9 +106,9 @@
 ### association
 
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
-## purchases
+## orders
 
 | Column          | Type       | Options                        |
 |-----------------|------------|--------------------------------|
@@ -131,9 +131,9 @@
 | address_line1 | string     | null: false                    |
 | address_line2 | string     |                                |
 | phone_number  | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### association
 
-- belongs_to :purchase
+- belongs_to :order
 
