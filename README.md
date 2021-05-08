@@ -106,7 +106,7 @@
 ### association
 
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 
 ## orders
 
